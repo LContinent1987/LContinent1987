@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login</title>
+</head>
+<body>
+
+    <div >
+
+            <form id="formSignIn" class="form-signin" role="form" method="POST" action="/login">
+                <input type="text" class="form-control" placeholder="Youremail@gmail.com"  required
+                    autofocus id="inputUsername" name="inputUsername" value="zhou">                 
+                <input type="password" class="form-control" placeholder="Password"
+                    required id="inputPassword" name="inputPassword" value="1">
+              <input class="form-check-input" type="checkbox" id="RemenberMeCheckChecked" name="RemenberMeCheckChecked" checked>
+              <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>                    
+                <input id="loginSignIn" class="btn btn-lg btn-primary btn-block" type="submit" value="Sign in">
+            </form>
+
+    </div>
+
+
+</body>
+</html>

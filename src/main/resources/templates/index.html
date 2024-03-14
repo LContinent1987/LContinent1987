@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Welcome to Spring Security Thymeleaf tutorial</title>
+    </head>
+    <body>
+        <h2>Welcome</h2>
+        <div sec:authorize="hasRole('USER')">I am <b style="color: red;">user</b></div>
+        <div sec:authorize="hasRole('ADMIN')">I am <b style="color: red;">admin</b></div>
+        <div sec:authorize="hasRole('LEGALE')">I am <b style="color: red;">legale</b></div>
+        <br>
+        
+        <div sec:authorize="isAuthenticated()">
+           I am <b style="color: red;">authenticated</b> user
+        </div>
+        <br>
+        Authenticated username: <div style="color: red;"><div sec:authentication="name"></div></div>
+        <br>
+        
+        principal fullname: <div style="color: red;"><div sec:authentication="principal.fullName"></div></div>
+        <br>
+        
+        
+        principal email: <div style="color: red;"><div sec:authentication="principal.email"></div></div>
+        <br>      
+        
+        principal ID: <div style="color: red;"><div sec:authentication="principal.id"></div></div>
+        <br>            
+        
+        Authenticated user roles: <div style="color: red;"><div sec:authentication="principal.authorities"></div></div>
+        
+        <br>
+        Mie azioni autorizzati per affidamenti:
+         <div style="color: red;"><div sec:authorize="hasAuthority('affidamenti.select')">Visione</div></div>
+         <div style="color: red;"><div sec:authorize="hasAuthority('affidamenti.insert')">Creazione</div></div>
+         <div style="color: red;"><div sec:authorize="hasAuthority('affidamenti.update')">Modifica</div></div>
+         <div style="color: red;"><div sec:authorize="hasAuthority('affidamenti.delete')">Cancellazione</div></div>
+        
+        <br>
+        <div>
+	        <a th:href="@{/authentication}">Dettagli utente</a>			
+			<br>
+			<a th:href="@{/logout}">Logout</a>
+			<br>
+			<a th:href="@{/test}">Test</a>
+	        <br>		
+
+		</div>
+        
+        
+        <div th:text="${SPRING_SECURITY_LAST_EXCEPTION}"></div>  
+        
+        
+        
+    </body>
+</html>
